@@ -1,6 +1,7 @@
-import {Table} from "antd";
 import {ColumnsType} from "antd/es/table";
 import {TableType} from "./types/TableType.ts";
+import Center from "./components/Center.tsx";
+
 function App() {
     const dataSource: TableType[] = [
         {
@@ -45,9 +46,9 @@ function App() {
     ];
 
     return (
-    <>
-        <Table dataSource={dataSource} columns={columns} />
-    </>
+     <div className="main">
+        <Center />
+     </div>
   )
 }
 
