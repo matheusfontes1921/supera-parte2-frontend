@@ -1,32 +1,52 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/SUPERA (1).svg'
-import styled from "styled-components"
+import {Table} from "antd";
+import {ColumnsType} from "antd/es/table";
+import {TableType} from "./types/TableType.ts";
 function App() {
-  const [count, setCount] = useState(0)
+    const dataSource: TableType[] = [
+        {
+            key: '1',
+            name: 'Mike',
+            age: 32,
+            address: '10 Downing Street',
+        },
+        {
+            key: '2',
+            name: 'John',
+            age: 42,
+            address: '10 Downing Street',
+        },
+    ];
 
-  return (
+    const columns:ColumnsType<TableType> = [
+        {
+            title: 'Dados',
+            dataIndex: 'dados',
+            key: 'dados',
+            render: (text) => <a>{text}</a>
+        },
+        {
+            title: 'Valentia',
+            dataIndex: 'valentia',
+            key: 'valentia',
+            render: (text) => <a>{text}</a>
+        },
+        {
+            title: 'Tipo',
+            dataIndex: 'tipo',
+            key: 'tipo',
+            render: (text) => <a>{text}</a>
+        },
+        {
+            title: 'Nome operador transacionado',
+            dataIndex: 'operador',
+            key: 'operador',
+            render: (text) => <a>{text}</a>
+        },
+    ];
+
+    return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+        <Table dataSource={dataSource} columns={columns} />
     </>
   )
 }
